@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         temp = (TextView) findViewById(R.id.textView4);
-        wilg = (TextView) findViewById((R.id.textView5));
-        cis = (TextView) findViewById((R.id.textView6));
+        wilg = (TextView) findViewById((R.id.textView6));
+        cis = (TextView) findViewById((R.id.textView5));
         button = (Button) findViewById((R.id.button));
         back = findViewById(R.id.imageButton);
 
@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
                                 int temperatura = jobj.getInt("temperatura");
                                 int cisnienie = jobj.getInt("cisnienie");
                                 int wilgotnosc = jobj.getInt("wilgotnosc");
-                                temp.setText(String.valueOf(temperatura));
-                                cis.setText(String.valueOf(cisnienie));
-                                wilg.setText(String.valueOf(wilgotnosc));
+                                temp.setText(String.valueOf(temperatura)+" °C");
+                                cis.setText(String.valueOf(cisnienie) + " hPa");
+                                wilg.setText(String.valueOf(wilgotnosc)+ " %");
                             }
                         } catch (JSONException e) {
 

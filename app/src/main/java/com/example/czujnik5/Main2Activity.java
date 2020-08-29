@@ -11,6 +11,7 @@ import android.widget.Button;
 
 public class Main2Activity extends AppCompatActivity {
 private Button aktualne;
+private Button history;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,15 +20,20 @@ private Button aktualne;
        aktualne=(Button)findViewById(R.id.button2);
         aktualne.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               Przelacz(v);
+               startActivity(new Intent(getApplicationContext(),MainActivity.class));
 
+            }
+        });
+        history=(Button)findViewById(R.id.history_button);
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               startActivity(new Intent(getApplicationContext(),History.class));
             }
         });
         }
 
-    public void Przelacz(View view){
-        Intent intent = new Intent(view.getContext(), MainActivity.class);
-        view.getContext().startActivity(intent);}
+
 
 
     @Override

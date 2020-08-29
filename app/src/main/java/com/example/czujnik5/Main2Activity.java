@@ -1,7 +1,9 @@
 package com.example.czujnik5;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,5 +28,32 @@ private Button aktualne;
     public void Przelacz(View view){
         Intent intent = new Intent(view.getContext(), MainActivity.class);
         view.getContext().startActivity(intent);}
+
+
+    @Override
+    public void onBackPressed() {
+       AlertDialog.Builder alert=new AlertDialog.Builder(Main2Activity.this);
+        alert.setMessage("Czy napewno chcesz wyjść z Aplikacji");
+        alert.setCancelable(false);
+
+
+
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alertDialog=alert.create();
+       alertDialog.show();
     }
+}
+
+
 

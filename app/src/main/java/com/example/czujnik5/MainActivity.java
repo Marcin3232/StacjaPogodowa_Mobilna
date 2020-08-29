@@ -21,12 +21,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-
 public class MainActivity extends AppCompatActivity {
     private TextView temp;
     private TextView wilg;
     private TextView cis;
     private Button button;
+    private ImageButton back;
 
     private RequestQueue mQueue;
 
@@ -35,26 +35,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        temp=(TextView) findViewById(R.id.textView4);
-        wilg=(TextView)findViewById((R.id.textView5));
-        cis=(TextView)findViewById((R.id.textView6));
-        button=(Button)findViewById((R.id.button));
-        ImageButton wstecz=findViewById(R.id.imageButton);
+        temp = (TextView) findViewById(R.id.textView4);
+        wilg = (TextView) findViewById((R.id.textView5));
+        cis = (TextView) findViewById((R.id.textView6));
+        button = (Button) findViewById((R.id.button));
+        back = findViewById(R.id.imageButton);
 
         mQueue = Volley.newRequestQueue(this);
-
+        jsonParse();
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 jsonParse();
 
             }
         });
-        wstecz.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), Main2Activity.class);
-                v.getContext().startActivity(intent);}
+                onBackPressed();
+            }
         });
     }
+
     private void jsonParse() {
         String url = "http://stacjapogodowa2.cba.pl/pobierz.php";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
@@ -64,12 +65,12 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             JSONObject jobj = response.getJSONObject("czujnik");
-                          //  JSONArray jsonArray = response.getJSONArray("czujnik");
+                            //  JSONArray jsonArray = response.getJSONArray("czujnik");
                             for (int i = 0; i < jobj.length(); i++) {
-                               // JSONObject obj = jobj.getJSONObject(i);
+                                // JSONObject obj = jobj.getJSONObject(i);
                                 int temperatura = jobj.getInt("temperatura");
                                 int cisnienie = jobj.getInt("cisnienie");
-                                int wilgotnosc=jobj.getInt("wilgotnosc");
+                                int wilgotnosc = jobj.getInt("wilgotnosc");
                                 temp.setText(String.valueOf(temperatura));
                                 cis.setText(String.valueOf(cisnienie));
                                 wilg.setText(String.valueOf(wilgotnosc));

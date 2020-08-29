@@ -23,10 +23,6 @@ public class History extends AppCompatActivity {
 
 
 
-
-
-
-
     //conect to database
     class connectToDataBase extends AsyncTask<Void, Void, Void>{
 

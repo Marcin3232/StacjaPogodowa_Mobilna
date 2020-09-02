@@ -115,11 +115,11 @@
         android:layout_height="72dp"
         android:layout_marginStart="222dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/gradient"
+        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/gradient"
-        app:srcCompat="?attr/homeAsUpIndicator"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="?attr/homeAsUpIndicator" />
 
     <ImageView
         android:id="@+id/imageView2"

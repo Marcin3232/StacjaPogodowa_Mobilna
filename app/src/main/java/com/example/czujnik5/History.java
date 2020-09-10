@@ -23,26 +23,8 @@ public class History extends AppCompatActivity {
         TabItem tabTemp = findViewById(R.id.tab_temperatura);
         TabItem tabCis = findViewById(R.id.tab_cisnienie);
         TabItem tabWilg = findViewById(R.id.tab_wilgotnosc);
-        ViewPager viewPager = findViewById(R.id.viewPager);
+       ViewPager viewPager = findViewById(R.id.viewPager);
 
-        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(pagerAdapter);
-        tabLayout.addOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
     }
 
 

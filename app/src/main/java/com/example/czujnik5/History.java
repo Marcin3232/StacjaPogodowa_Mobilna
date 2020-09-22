@@ -19,12 +19,14 @@ public class History extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-        TabLayout tabLayout = findViewById(R.id.tabLayout);
-        TabItem tabTemp = findViewById(R.id.tab_temperatura);
-        TabItem tabCis = findViewById(R.id.tab_cisnienie);
-        TabItem tabWilg = findViewById(R.id.tab_wilgotnosc);
-       ViewPager viewPager = findViewById(R.id.viewPager);
-
+        TabLayout tabLayout = findViewById(R.id.tablayout_id);
+       ViewPager viewPager = findViewById(R.id.viewpager_id);
+    ViewPagerAdapter adapter=new ViewPagerAdapter(getSupportFragmentManager());
+    adapter.AddFragment(new FragmentTemp(),"Temperatura");
+    adapter.AddFragment(new FragmentCis(),"Ciśnienie");
+    adapter.AddFragment(new FragmentWilg(),"Wilgotność");
+viewPager.setAdapter(adapter);
+tabLayout.setupWithViewPager(viewPager);
     }
 
 

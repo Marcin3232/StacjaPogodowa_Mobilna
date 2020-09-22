@@ -12,6 +12,7 @@ import android.widget.Button;
 public class Main2Activity extends AppCompatActivity {
 private Button aktualne;
 private Button history;
+private Button wykresy;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +29,15 @@ private Button history;
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               startActivity(new Intent(getApplicationContext(),History.class));
+               startActivity(new Intent(getApplication(),History.class));
+            }
+        });
+
+        wykresy=(Button)findViewById(R.id.button4);
+        wykresy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Wykresy.class));
             }
         });
         }

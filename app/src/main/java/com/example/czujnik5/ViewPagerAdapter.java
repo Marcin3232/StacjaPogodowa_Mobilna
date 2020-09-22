@@ -1,6 +1,7 @@
 package com.example.czujnik5;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -11,6 +12,7 @@ import java.util.List;
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private  final List<Fragment> fragmentList=new ArrayList<>();
+    private final List<String> FragmentListTitles=new ArrayList<>();
     public ViewPagerAdapter(@NonNull FragmentManager fm) {
         super(fm);
     }
@@ -18,11 +20,23 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        return null;
+
+        return fragmentList.get(position);
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return FragmentListTitles.get(position);
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return FragmentListTitles.size();
+    }
+
+    public void AddFragment(Fragment fragment,String Title){
+        fragmentList.add(fragment);
+        FragmentListTitles.add(Title);
     }
 }

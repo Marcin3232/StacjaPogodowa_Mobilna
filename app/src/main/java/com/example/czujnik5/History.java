@@ -29,20 +29,4 @@ viewPager.setAdapter(adapter);
 tabLayout.setupWithViewPager(viewPager);
     }
 
-
-    //conect to database
-    class connectToDataBase extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection connection = DriverManager.getConnection("mysql.cba.pl");
-
-            } catch (Exception e) {
-
-            }
-            return null;
-        }
-    }
 }

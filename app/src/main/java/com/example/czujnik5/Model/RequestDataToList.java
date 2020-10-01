@@ -20,6 +20,7 @@ public class RequestDataToList {
     Context mContext;
     ListView listView;
     List<TempData> temperatureList;
+
     private String url = "http://stacjapogodowa2.cba.pl/history.php";
 
     public RequestDataToList(Context mContext, ListView listView, List<TempData> list) {
@@ -56,6 +57,8 @@ public class RequestDataToList {
 
         };
         Handler.getInstance(context).addToRequestQueue(stringRequest);
+
     }
+
 
 }

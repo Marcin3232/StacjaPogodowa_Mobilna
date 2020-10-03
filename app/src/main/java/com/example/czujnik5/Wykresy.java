@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -43,6 +44,7 @@ public class Wykresy extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wykresy);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
         TabLayout tabLayout = findViewById(R.id.tablayout_id);
         ViewPager viewPager = findViewById(R.id.viewpager_id);
         ViewPagerAdapter adapter=new ViewPagerAdapter(getSupportFragmentManager());

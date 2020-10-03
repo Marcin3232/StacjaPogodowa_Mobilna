@@ -10,5 +10,8 @@
     <color name="button2">#0025E1</color>
     <color name="button3">#7B1F9C</color>
     <color name="button4">#C937FE</color>
+    <color name="brown">#990000</color>
+    <color name="orange">#FF6600</color>
+    <color name="yellow">#FFCC00</color>
 
 </resources>

@@ -41,7 +41,7 @@
 
     <ProgressBar
         android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
+        style="@android:style/Widget.Holo.Light.ProgressBar.Large"
         android:layout_width="69dp"
         android:layout_height="63dp"
         android:layout_marginStart="171dp"

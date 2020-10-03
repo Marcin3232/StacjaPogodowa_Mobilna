@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +15,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.czujnik5.Handler;
 import com.example.czujnik5.R;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -41,6 +43,7 @@ public class RequestDataToChart extends AppCompatActivity {
         this.mChart = mChart;
         this.mView=view;
 
+
     }
 
     public void getValues(Context context, String name){
@@ -62,14 +65,28 @@ public class RequestDataToChart extends AppCompatActivity {
 
                 }
                 mChart.setDragEnabled(true);
-                mChart.setScaleEnabled(false);
-                LineDataSet dataSet=new LineDataSet(temperatureData,"Label");
+                mChart.setScaleEnabled(true);
+                mChart.setDrawBorders(true);
+                LineDataSet dataSet=new LineDataSet(temperatureData,"Temperatura");
                 dataSet.setFillAlpha(110);
+                dataSet.setLineWidth(2);
+                dataSet.setColor(Color.YELLOW);
+                dataSet.setCircleHoleColor(Color.GREEN);
                 dataSet.setCircleColor(Color.RED);
+                dataSet.setCircleRadius(3);
+                dataSet.setValueTextSize(12);
+                dataSet.setValueTextColor(Color.WHITE);
                 ArrayList<ILineDataSet> lineDataSets=new ArrayList<>();
                 lineDataSets.add(dataSet);
                 LineData data=new LineData(lineDataSets);
+                Legend legend=mChart.getLegend();
+                legend.setEnabled(true);
+                legend.setTextColor(Color.WHITE);
+                legend.setTextSize(12);
+                legend.setForm(Legend.LegendForm.LINE);
+                legend.setFormSize(15);
                 mChart.setData(data);
+
 
             }
 
@@ -81,5 +98,6 @@ public class RequestDataToChart extends AppCompatActivity {
         }) {
 
         }; Handler.getInstance(context).addToRequestQueue(stringRequest);
+
     }
 }

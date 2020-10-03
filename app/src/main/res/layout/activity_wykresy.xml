@@ -4,24 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/base"
+    android:screenOrientation="landscape"
+    android:orientation="vertical"
     tools:context=".Wykresy">
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabGravity="fill"
+        app:tabIndicatorColor="@color/colorPrimary"
         app:tabMode="fixed"
-        android:id="@+id/tablayout_id"
-        app:tabTextColor="@color/white"
-        app:tabIndicatorColor="@color/colorPrimary">
+        app:tabTextColor="@color/white">
 
     </com.google.android.material.tabs.TabLayout>
+
     <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager_id"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/viewpager_id">
+        android:layout_height="match_parent">
 
     </androidx.viewpager.widget.ViewPager>
 

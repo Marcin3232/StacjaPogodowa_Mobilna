@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/back"
+    android:title="cofnij"
+    android:icon="@drawable/ic_arrow_back_black_24dp"/>
+    <item
+        android:id="@+id/refresh"
+        android:title="odśwież"
+        android:icon="@drawable/ic_refresh_black_24dp"/>
+
+</menu>

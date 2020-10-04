@@ -8,7 +8,7 @@
     android:screenOrientation="landscape"
     android:orientation="vertical"
     tools:context=".Wykresy">
-
+    <include layout="@layout/topbar"/>
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tablayout_id"
         android:layout_width="match_parent"

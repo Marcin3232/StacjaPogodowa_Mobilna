@@ -21,9 +21,9 @@
             android:id="@+id/tempName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:gravity="right"
             android:textColor="@color/white"
-            android:gravity="right" />
+            android:textSize="18sp" />
     </LinearLayout>
 
 

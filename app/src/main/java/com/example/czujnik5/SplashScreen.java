@@ -27,22 +27,21 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        title=findViewById(R.id.textView9);
-        logo=findViewById(R.id.imageView);
-        load=findViewById(R.id.progressBar);
-        Animation animation = AnimationUtils.loadAnimation(this,R.anim.animation1);
+        title = findViewById(R.id.textView9);
+        logo = findViewById(R.id.imageView);
+        load = findViewById(R.id.progressBar);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.animation1);
         title.startAnimation(animation);
         logo.startAnimation(animation);
         load.startAnimation(animation);
-        final Intent newScreen=new Intent(this,Main2Activity.class);
-        Thread thread = new Thread(){
-            public void run()   {
+        final Intent newScreen = new Intent(this, Main2Activity.class);
+        Thread thread = new Thread() {
+            public void run() {
                 try {
                     sleep(3000);
-                }catch (InterruptedException e){
+                } catch (InterruptedException e) {
                     e.printStackTrace();
-                }
-                finally {
+                } finally {
                     startActivity(newScreen);
                     finish();
                 }

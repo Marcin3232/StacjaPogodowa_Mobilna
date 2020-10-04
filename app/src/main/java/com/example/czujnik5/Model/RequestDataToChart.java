@@ -1,10 +1,10 @@
 package com.example.czujnik5.Model;
 
-import android.app.ProgressDialog;
+
 import android.content.Context;
-import android.graphics.Color;
+
 import android.view.View;
-import android.widget.ProgressBar;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,39 +15,40 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.czujnik5.Handler;
 import com.example.czujnik5.R;
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class RequestDataToChart extends AppCompatActivity {
     Context mContext;
     ArrayList<Entry> temperatureData;
     LineChart mChart;
     View mView;
+    String mSign;
+    ArrayList<String> timeList;
 
 
     private String url = "http://stacjapogodowa2.cba.pl/history.php";
 
-    public RequestDataToChart(Context mContext, ArrayList<Entry> temperatureData, LineChart mChart,View view) {
+    public RequestDataToChart(Context mContext, ArrayList<Entry> temperatureData, LineChart mChart, View view, String sign) {
         this.mContext = mContext;
         this.temperatureData = temperatureData;
         this.mChart = mChart;
-        this.mView=view;
+        this.mView = view;
+        this.mSign = sign;
 
 
     }
 
-    public void getValues(Context context, String name){
-        mChart=mView.findViewById(R.id.linearchart);
+    public void getValues(Context context, String name, String label) {
+        mChart = mView.findViewById(R.id.linearchart);
+        timeList = new ArrayList<>();
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -56,38 +57,19 @@ public class RequestDataToChart extends AppCompatActivity {
                     JSONArray array = obj.getJSONArray("czujnik");
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject aObj = array.getJSONObject(i);
-                        float xName=Float.parseFloat(aObj.getString(name));
-                        temperatureData.add(new Entry(i,xName));
+                        float yName = Float.parseFloat(aObj.getString(name));
+                        String datatime = aObj.getString("TimeStamp");
+                        timeList.add(i, datatime);
+                        temperatureData.add(new Entry(i, yName));
+
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
 
                 }
-                mChart.setDragEnabled(true);
-                mChart.setScaleEnabled(true);
-                mChart.setDrawBorders(true);
-                LineDataSet dataSet=new LineDataSet(temperatureData,"Temperatura");
-                dataSet.setFillAlpha(110);
-                dataSet.setLineWidth(2);
-                dataSet.setColor(Color.YELLOW);
-                dataSet.setCircleHoleColor(Color.GREEN);
-                dataSet.setCircleColor(Color.RED);
-                dataSet.setCircleRadius(3);
-                dataSet.setValueTextSize(12);
-                dataSet.setValueTextColor(Color.WHITE);
-                ArrayList<ILineDataSet> lineDataSets=new ArrayList<>();
-                lineDataSets.add(dataSet);
-                LineData data=new LineData(lineDataSets);
-                Legend legend=mChart.getLegend();
-                legend.setEnabled(true);
-                legend.setTextColor(Color.WHITE);
-                legend.setTextSize(12);
-                legend.setForm(Legend.LegendForm.LINE);
-                legend.setFormSize(15);
-                mChart.setData(data);
-
-
+                ChartDesigner chartDesigner = new ChartDesigner(temperatureData, mChart, timeList, mSign);
+                chartDesigner.setData(label);
             }
 
         }, new Response.ErrorListener() {
@@ -97,7 +79,8 @@ public class RequestDataToChart extends AppCompatActivity {
             }
         }) {
 
-        }; Handler.getInstance(context).addToRequestQueue(stringRequest);
+        };
+        Handler.getInstance(context).addToRequestQueue(stringRequest);
 
     }
 }

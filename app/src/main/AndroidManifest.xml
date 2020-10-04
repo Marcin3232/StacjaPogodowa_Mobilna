@@ -13,17 +13,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Wykresy"></activity>
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".History" />
-        <activity android:name=".SplashScreen">
+        <activity
+            android:name=".Wykresy"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".Main2Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".History"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

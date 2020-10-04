@@ -10,47 +10,48 @@ import android.view.View;
 import android.widget.Button;
 
 public class Main2Activity extends AppCompatActivity {
-private Button aktualne;
-private Button history;
-private Button wykresy;
+    private Button aktualne;
+    private Button history;
+    private Button wykresy;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-       aktualne=(Button)findViewById(R.id.button2);
+        aktualne = (Button) findViewById(R.id.button2);
         aktualne.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
             }
         });
-        history=(Button)findViewById(R.id.history_button);
+        history = (Button) findViewById(R.id.history_button);
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               startActivity(new Intent(getApplication(),History.class));
+                finish();
+                startActivity(new Intent(getApplication(), History.class));
             }
         });
 
-        wykresy=(Button)findViewById(R.id.button4);
+        wykresy = (Button) findViewById(R.id.button4);
         wykresy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Wykresy.class));
+                finish();
+                startActivity(new Intent(getApplicationContext(), Wykresy.class));
             }
         });
-        }
-
-
+    }
 
 
     @Override
     public void onBackPressed() {
-       AlertDialog.Builder alert=new AlertDialog.Builder(Main2Activity.this);
+        AlertDialog.Builder alert = new AlertDialog.Builder(Main2Activity.this);
         alert.setMessage("Czy napewno chcesz wyjść z Aplikacji");
         alert.setCancelable(false);
-
 
 
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -65,8 +66,8 @@ private Button wykresy;
                 dialog.cancel();
             }
         });
-        AlertDialog alertDialog=alert.create();
-       alertDialog.show();
+        AlertDialog alertDialog = alert.create();
+        alertDialog.show();
     }
 }
 

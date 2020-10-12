@@ -17,7 +17,7 @@ the minimum android version is 28.
 # Documentation
 Main screenshot:
 <p align="center">
-  <img src="https://github.com/Marcin3232/StacjaPogodowa_Mobilna/blob/master/ImageToReadme/r1.PNG">
+  <img  width="210" height="425" src="https://github.com/Marcin3232/StacjaPogodowa_Mobilna/blob/master/ImageToReadme/r1.PNG">
 </p>
 
 On the server, we need 2 php scripts that return a json object. One to one data taking temperature, humidity and preassure. Second return 100 last records in database.
@@ -57,7 +57,7 @@ echo json_encode(array("czujnik"=>$response));
 The app connects to the Rest app using the volley library.Two models of connecting to the server result from developing knowledge and facilitating the next steps. 
 
 <p align="center">
-  <img src="https://github.com/Marcin3232/StacjaPogodowa_Mobilna/blob/master/ImageToReadme/r2.PNG">
+  <img width="210" height="425" src="https://github.com/Marcin3232/StacjaPogodowa_Mobilna/blob/master/ImageToReadme/r2.PNG">
 </p>
 
 The snippet of the server connection request code:
@@ -98,14 +98,14 @@ private void jsonParse() {
   View the last 100 records:
   
   <p align="center">
-  <img src="https://github.com/Marcin3232/StacjaPogodowa_Mobilna/blob/master/ImageToReadme/r3.PNG">
+  <img width="210" height="425" src="https://github.com/Marcin3232/StacjaPogodowa_Mobilna/blob/master/ImageToReadme/r3.PNG">
 </p>
 
 
 The mpandroid library was used to visualize the charts.
 
   <p align="center">
-  <img src="https://github.com/Marcin3232/StacjaPogodowa_Mobilna/blob/master/ImageToReadme/r4.PNG">
+  <img width="210" height="425" src="https://github.com/Marcin3232/StacjaPogodowa_Mobilna/blob/master/ImageToReadme/r4.PNG">
 </p>
 
 # Possibilities for further development

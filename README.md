@@ -17,7 +17,7 @@ the minimum android version is 28.
 # Documentation
 Main screenshot:
 <p align="center">
-  <img  width="210" height="425" src="https://github.com/Marcin3232/StacjaPogodowa_Mobilna/blob/master/ImageToReadme/r1.PNG">
+  <img  width="425" height="210" src="https://github.com/Marcin3232/StacjaPogodowa_Mobilna/blob/master/ImageToReadme/r1.PNG">
 </p>
 
 On the server, we need 2 php scripts that return a json object. One to one data taking temperature, humidity and preassure. Second return 100 last records in database.
